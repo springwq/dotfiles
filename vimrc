@@ -40,10 +40,6 @@ set nojoinspaces
 
 set colorcolumn=+1
 
-
-" Remove netrw banner
-let g:netrw_banner = 0
-
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
@@ -74,6 +70,21 @@ filetype indent on
 " Always enable preview window on the right with 60% width
 let g:fzf_preview_window = 'right:60%'
 
+" NERDTree
+" - Open by Default
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" - Toggle open/close
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+" - Find
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+" - Auto Close
+let NERDTreeQuitOnOpen = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeAutoDeleteBuffer = 1
+" - Pretty look
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -140,6 +151,8 @@ call minpac#add('hail2u/vim-css3-syntax')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('maxmellon/vim-jsx-pretty')
 call minpac#add('neoclide/coc.nvim')
+call minpac#add('preservim/nerdtree')
+call minpac#add('Xuyuanp/nerdtree-git-plugin')
 
 " command
 command! PackUpdate call minpac#update()

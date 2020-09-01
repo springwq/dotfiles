@@ -56,7 +56,7 @@ set tags=tags;/
 
 " Press CTRL-N or CTRL-P in insert-mode to complete the word we’re typing!
 set complete+=kspell
-" imap <Tab> <C-P>
+imap <Tab> <C-P>
 
 " Turn on spell-checking for Markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -100,7 +100,6 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>w <C-w>w
 
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 inoremap jk <ESC>
 
 " NVIM terminal mode - mapping

@@ -12,8 +12,8 @@ Codex、Claude Code、omp 共用此文件。标注"仅 xxx"的段落只在对应
 
 ## Git 与 PR
 
-- 避免直接向 `main` 或 `master` 执行 `git push`；需要合入时优先走功能分支和 PR 流程。
-- 若我要求直接推送到 `main` 或 `master`，先说明风险，并在执行前要求明确确认。
+- 禁止直接推送到远端 `main` 或 `master`，所有改动通过功能分支和 PR 合入。
+- 工作完成并验证后，自动提交改动、推送功能分支并创建或更新 PR，无需另行确认。
 - 创建或更新 PR description / PR comment 时，默认只写 Summary；不要加入 `Test Plan` 或 `Tests` 段落，除非我明确要求。
 - 分支命名：`<type>/<description>`，type 取 `feat` / `fix` / `hotfix` / `chore` / `docs` / `refactor` / `test` / `release`；描述全小写、连字符分词，50 字符内；有 issue 编号就放在描述开头（`feat/123-add-login`）。绝不用 `claude/` 或其他工具名做前缀。
 - PR 标题：`<type>(<scope>): <祈使句描述>`，scope 可省略；祈使语气（`Add` 不是 `Added`），72 字符内，不以句号结尾；issue 编号写在正文，不放标题。
@@ -32,7 +32,7 @@ Codex、Claude Code、omp 共用此文件。标注"仅 xxx"的段落只在对应
 
 - 声称完成、已修复或测试通过前，先实际运行验证并给出结果。
 - 小而边界清晰的改动直接做，不需要设计审批、spec、worktree 或正式计划。
-- 实质性扩大任务范围、创建 PR、推送代码或大量使用 subagent 前，先问我。
+- 实质性扩大任务范围或大量使用 subagent 前，先问我。
 
 ## Herdr Projects Coordinator
 
